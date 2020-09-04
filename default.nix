@@ -21,6 +21,9 @@ let
       name = "dev-shell";
       buildInputs = [
         pythonPackages.ipython
+        pythonPackages.wheel
+        pythonPackages.setuptools
+        pythonPackages.twine
       ] ++ ebook-blackener.propagatedBuildInputs;
     };
   };
