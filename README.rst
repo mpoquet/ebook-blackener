@@ -9,10 +9,10 @@ Script / library to set ebooks' texts as white over a black background.
 Usage
 -----
 
-`ebook-blackener <input-file> <output-base-name>`
+``ebook-blackener <input-file> <output-base-name>``
 
 Install
 -------
 
-- From PyPI: `pip install ebook-blackener`
-- From local version: `pip install .`
+- From PyPI: ``pip install ebook-blackener``
+- From local version: ``pip install .``
