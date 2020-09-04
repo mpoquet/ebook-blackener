@@ -7,29 +7,21 @@ let
     pythonPackages = pkgs.python3Packages;
     buildPythonPackage = pythonPackages.buildPythonPackage;
 
-    ebooklib = buildPythonPackage {
-      name = "ebooklib-0.17.1";
+    ebook-blackener = buildPythonPackage {
+      name = "ebook-blackener-0.1.0";
       doCheck = false;
-      buildInputs = with pythonPackages; [
-        six
-      ];
       propagatedBuildInputs = with pythonPackages; [
-        lxml
+        cssutils
+        docopt
       ];
-      src = builtins.fetchurl {
-        url = "https://files.pythonhosted.org/packages/00/38/7d6ab2e569a9165249619d73b7bc6be0e713a899a3bc2513814b6598a84c/EbookLib-0.17.1.tar.gz";
-        sha256 = "1w972g0kmh9cdxf3kjr7v4k99wvv4lxv3rxkip39c08550nf48zy";
-      };
+      src = ./.;
     };
 
     dev-shell = pkgs.mkShell {
       name = "dev-shell";
       buildInputs = [
         pythonPackages.ipython
-        pythonPackages.cssutils
-        pythonPackages.docopt
-        ebooklib
-      ];
+      ] ++ ebook-blackener.propagatedBuildInputs;
     };
   };
 in
